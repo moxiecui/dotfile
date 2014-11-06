@@ -1,9 +1,13 @@
 Installation
 =======
-### Vim
-1. Copy .vimrc to home directory:
+Vim
+-------
+1. Set up [Vundle](https://github.com/gmarik/Vundle.vim):
 
-        cp .vimrc ~/.vimrc
-2. Install Plugins:
+        $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+2. Copy .vimrc to home directory:
+
+        $ cp .vimrc ~/.vimrc
+3. Install Plugins:
 
     Launch `vim` and run `:PluginInstall`
