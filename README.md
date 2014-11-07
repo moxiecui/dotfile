@@ -11,3 +11,12 @@ Vim
 3. Install Plugins:
 
     Launch `vim` and run `:PluginInstall`
+
+Git
+-------
+1. Set up ~/.gitignore:
+
+        $ git config --global core.excludesfile ~/.gitignore
+2. Copy .gitignore to home directory:
+
+        $ cp .gitignore ~/.gitignore
