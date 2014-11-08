@@ -1,5 +1,11 @@
 Installation
 =======
+iTerm2
+-------
+1. Set up iTerm2 preference:
+
+        $ cp com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+
 Vim
 -------
 1. Set up [Vundle](https://github.com/gmarik/Vundle.vim):
