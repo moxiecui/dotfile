@@ -17,6 +17,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'msanders/snipmate.vim'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,10 +45,24 @@ set laststatus=2
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=1
 
+" Syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_loc_list_height=5
+let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+function! ToggleError()
+    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
+        Errors
+    else
+        lclose
+    endif
+endfunction
+
 let mapleader=','
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :set list!<CR>
+nmap <F4> :call ToggleError()<CR>
 nmap <F8> :TagbarToggle<CR>
 
 nmap <Up> gk
