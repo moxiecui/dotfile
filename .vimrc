@@ -12,10 +12,11 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Solarized'
 Plugin 'Tagbar'
-Plugin 'Syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'msanders/snipmate.vim'
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -32,16 +33,21 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Theme
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
+" Airline
+set laststatus=2
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts=1
+
 let mapleader=','
 
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :echo expand('%:p')<CR>
-nmap <F4> :set list!<CR>
+nmap <F3> :set list!<CR>
 nmap <F8> :TagbarToggle<CR>
 
 nmap <Up> gk
@@ -54,6 +60,7 @@ imap <C-e> <C-O><C-e>
 imap <C-y> <C-O><C-y>
 
 set nu
+set t_Co=256
 set hlsearch
 set smartindent
 set tabstop=4
@@ -63,7 +70,7 @@ set cursorline
 set list
 set listchars=eol:$,tab:>-,trail:~
 set colorcolumn=80
-set ruler
 
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd CursorMovedI,CursorMoved * GitGutterEnable
