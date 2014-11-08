@@ -41,6 +41,7 @@ let mapleader=','
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :echo expand('%:p')<CR>
+nmap <F4> :set list!<CR>
 nmap <F8> :TagbarToggle<CR>
 
 nmap <Up> gk
@@ -59,5 +60,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set cursorline
+set list
+set listchars=eol:$,tab:>-,trail:~
+set colorcolumn=80
+set ruler
 
+autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * :%s/\s\+$//e
