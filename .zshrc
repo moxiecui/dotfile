@@ -70,13 +70,6 @@ export LANG=zh_TW.UTF-8
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-alias grep="grep -nH"
-alias ls="ls -FG"
-
 # Less Colors for Man Pages
 export LESS_TERMCAP_mb=$'\e[01;32m'
 export LESS_TERMCAP_md=$'\e[0;34m'
@@ -85,3 +78,10 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[0;30;43m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[0;31m'
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+alias grep="grep -nH"
+alias ls="ls -FG"
