@@ -4,8 +4,6 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -32,7 +30,6 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 " Theme
 syntax enable
@@ -46,6 +43,7 @@ let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=1
 
 " Syntastic
+" :SyntasticInfo to list checkers
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_loc_list_height=5
@@ -73,6 +71,8 @@ imap <Up> <C-O>gk
 imap <Down> <C-O>gj
 imap <C-e> <C-O><C-e>
 imap <C-y> <C-O><C-y>
+vmap <Up> gk
+vmap <Down> gj
 
 set nu
 set t_Co=256
