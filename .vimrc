@@ -8,34 +8,52 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Solarized'
-Plugin 'Tagbar'
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'msanders/snipmate.vim'
+Plugin 'ervandew/supertab'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet'
+Plugin 'honza/vim-snippets'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Syntastic'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Raimondi/delimitMate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
 
 " Theme
 syntax enable
 set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+"let g:solarized_termcolors=256
+"colorscheme solarized
+colorscheme molokai
+
+" Supertab
+let g:SuperTabDefaultCompletionType='<C-n>'
+
+" Neocomplete
+let g:neocomplete#enable_at_startup=1
+let g:neocomplete#enable_ignore_case=1
+
+" Neosnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " Airline
 set laststatus=2
@@ -56,6 +74,34 @@ function! ToggleError()
     endif
 endfunction
 
+" CtrlP
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd='CtrlP'
+let g:ctrlp_working_path_mode='ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ }
+let g:ctrlp_by_filename=1
+let g:ctrlp_match_window_bottom=0
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_use_caching=1
+let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_show_hidden=1
+
+" Indent-guides
+let g:indent_guides_auto_colors=0
+highlight IndentGuidesOdd ctermbg=234
+highlight IndentGuidesEven ctermbg=236
+let g:indent_guides_guide_size=1
+let g:indent_guides_start_level=2
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_exclude_filetypes=['help', 'nerdtree']
+
+" delimitMate
+let delimitMate_matchpairs='(:),[:],{:}'
+
 let mapleader=','
 
 nmap <F2> :NERDTreeToggle<CR>
@@ -74,7 +120,7 @@ imap <C-y> <C-O><C-y>
 vmap <Up> gk
 vmap <Down> gj
 
-set nu
+set number
 set t_Co=256
 set hlsearch
 set smartindent
@@ -82,9 +128,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set cursorline
-set list
-set listchars=eol:$,tab:>-,trail:~
 set colorcolumn=80
+set backspace=indent,eol,start
 
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * :%s/\s\+$//e
