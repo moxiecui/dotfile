@@ -1,0 +1,6 @@
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+[user]
+	name = Ray Wang
+	email = raywang945@gmail.com
