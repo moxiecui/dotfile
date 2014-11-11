@@ -20,9 +20,9 @@ Vim
 
 Git
 -------
-1. Set up ~/.gitignore:
+1. Copy .gitconfig to home directory:
 
-        $ git config --global core.excludesfile ~/.gitignore
+        $ cp .gitconfig ~/.gitconfig
 2. Copy .gitignore to home directory:
 
         $ cp .gitignore ~/.gitignore
