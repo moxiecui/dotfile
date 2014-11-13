@@ -9,7 +9,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -26,6 +25,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-fugitive'
+Plugin 'nvie/vim-togglemouse'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -33,9 +35,6 @@ filetype plugin indent on    " required
 
 " Theme
 syntax enable
-set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
 colorscheme molokai
 
 " Supertab
@@ -47,9 +46,9 @@ let g:neocomplete#enable_ignore_case=1
 
 " Neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+imap <expr><Tab> neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+    \: pumvisible() ? "\<C-n>" : "\<Tab>"
 if has('conceal')
     set conceallevel=2 concealcursor=i
 endif
@@ -59,6 +58,12 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 set laststatus=2
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#tabline#tab_nr_type=1
+
+" GitGutter
+let g:gitgutter_map_keys=0
 
 " Syntastic
 " :SyntasticInfo to list checkers
@@ -75,7 +80,7 @@ function! ToggleError()
 endfunction
 
 " CtrlP
-let g:ctrlp_map='<c-p>'
+let g:ctrlp_map='<C-p>'
 let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_working_path_mode='ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -105,31 +110,56 @@ let delimitMate_matchpairs='(:),[:],{:}'
 let mapleader=','
 
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :set list!<CR>
-nmap <F4> :call ToggleError()<CR>
+nmap <F3> :call ToggleError()<CR>
 nmap <F8> :TagbarToggle<CR>
 
+" Tab navigation
+nmap <C-Right> gt
+nmap <C-Left> gT
+nmap <Leader>1 1gt
+nmap <Leader>2 2gt
+nmap <Leader>3 3gt
+nmap <Leader>4 4gt
+nmap <Leader>5 5gt
+nmap <Leader>6 6gt
+nmap <Leader>7 7gt
+nmap <Leader>8 8gt
+nmap <Leader>9 9gt
+nmap <Leader>n :tabnew<CR>
+
+" Up and Down
 nmap <Up> gk
 nmap <Down> gj
-nmap <C-l> gt
-nmap <C-h> gT
-imap <Up> <C-O>gk
-imap <Down> <C-O>gj
-imap <C-e> <C-O><C-e>
-imap <C-y> <C-O><C-y>
+imap <Up> <C-o>gk
+imap <Down> <C-o>gj
 vmap <Up> gk
 vmap <Down> gj
 
+" Ctrl-e and Ctrl-y
+imap <C-e> <C-o><C-e>
+imap <C-y> <C-o><C-y>
+
+" Ctrl-s
+map <C-s> :w<CR>
+imap <C-s> <C-o>:w<CR>
+vmap <C-s> <C-c>:w<CR>
+
 set number
-set t_Co=256
 set hlsearch
+set incsearch
 set smartindent
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
 set cursorline
 set colorcolumn=80
 set backspace=indent,eol,start
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+set title
+set mouse=a
+set shortmess=atI
 
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * :%s/\s\+$//e
