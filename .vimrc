@@ -80,13 +80,11 @@ function! ToggleError()
 endfunction
 
 " CtrlP
-let g:ctrlp_map='<C-p>'
 let g:ctrlp_cmd='CtrlP'
-let g:ctrlp_working_path_mode='ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/Library/*
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'dir':  '\v[\/]\.(git|Trash|cache|vim|oh-my-zsh|config|ssh)$',
+    \ 'file': '\v\.(swp|zip|so)$'
     \ }
 let g:ctrlp_by_filename=1
 let g:ctrlp_match_window_bottom=0
@@ -94,6 +92,7 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_use_caching=1
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_show_hidden=1
+let g:ctrlp_regexp=1
 
 " Indent-guides
 let g:indent_guides_auto_colors=0
@@ -114,6 +113,8 @@ nmap <F3> :call ToggleError()<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " Tab navigation
+let g:ctrlp_map='<C-p>'
+nmap <C-n> :CtrlPCurWD<CR>
 nmap <C-Right> gt
 nmap <C-Left> gT
 nmap <Leader>1 1gt
