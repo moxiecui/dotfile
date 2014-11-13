@@ -28,6 +28,15 @@ Git
 
         $ cp .gitignore ~/.gitignore
 
+Tmux
+-------
+1. Install Tmux:
+
+        $ brew install tmux
+2. Cpoy .tmux.config to home directory:
+
+        $ cp .tmux.conf ~/.tmux.conf
+
 Vim
 -------
 1. Set up [Vundle](https://github.com/gmarik/Vundle.vim):
