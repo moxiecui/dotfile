@@ -19,6 +19,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'kien/ctrlp.vim'
@@ -29,12 +30,15 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-fugitive'
 Plugin 'nvie/vim-togglemouse'
 
+Plugin 'Keithbsmiley/tmux.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Theme
 syntax enable
+set t_Co=256
 colorscheme molokai
 
 " Supertab
@@ -64,6 +68,7 @@ let g:airline#extensions#tabline#tab_nr_type=1
 
 " GitGutter
 let g:gitgutter_map_keys=0
+autocmd BufReadPost,CursorMovedI,CursorMoved * GitGutterEnable
 
 " Syntastic
 " :SyntasticInfo to list checkers
@@ -79,10 +84,14 @@ function! ToggleError()
     endif
 endfunction
 
+" Tmuxline
+let g:tmuxline_powerline_separators=0
+let g:tmuxline_preset='crosshair'
+
 " CtrlP
 let g:ctrlp_cmd='CtrlP'
 set wildignore+=*/Library/*
-let g:ctrlp_custom_ignore = {
+let g:ctrlp_custom_ignore={
     \ 'dir':  '\v[\/]\.(git|Trash|cache|vim|oh-my-zsh|config|ssh)$',
     \ 'file': '\v\.(swp|zip|so)$'
     \ }
@@ -160,8 +169,10 @@ set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
 set title
 set mouse=a
+set ttymouse=xterm2
 set shortmess=atI
+
+command -complete=help -nargs=1 Vhelp vertical help <args>
 
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd CursorMovedI,CursorMoved * GitGutterEnable
