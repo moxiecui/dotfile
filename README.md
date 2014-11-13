@@ -1,5 +1,11 @@
 Installation
 =======
+OSX
+-------
+1. Disable some keyboard shortcuts:
+    1. System Preferences -> Keyboard -> Shortcuts
+    2. Disable ^→, ^←, and F12
+
 iTerm2
 -------
 1. Set up iTerm2 preference:
