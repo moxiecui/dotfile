@@ -6,27 +6,6 @@ iTerm2
 
         $ cp com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 
-Vim
--------
-1. Set up [Vundle](https://github.com/gmarik/Vundle.vim):
-
-        $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-2. Copy .vimrc to home directory:
-
-        $ cp .vimrc ~/.vimrc
-3. Install Plugins:
-
-    Launch `vim` and run `:PluginInstall`
-
-Git
--------
-1. Copy .gitconfig to home directory:
-
-        $ cp .gitconfig ~/.gitconfig
-2. Copy .gitignore to home directory:
-
-        $ cp .gitignore ~/.gitignore
-
 Zsh
 -------
 1. Install Zsh:
@@ -39,3 +18,29 @@ Zsh
 3. Copy .zshrc to home directory:
 
         $ cp .zshrc ~/.zshrc
+
+Git
+-------
+1. Copy .gitconfig to home directory:
+
+        $ cp .gitconfig ~/.gitconfig
+2. Copy .gitignore to home directory:
+
+        $ cp .gitignore ~/.gitignore
+
+Vim
+-------
+1. Set up [Vundle](https://github.com/gmarik/Vundle.vim):
+
+        $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+2. Copy .vimrc to home directory:
+
+        $ cp .vimrc ~/.vimrc
+3. Install [powerline-fonts](https://github.com/Lokaltog/powerline-fonts):
+
+        $ git clone git@github.com:Lokaltog/powerline-fonts.git
+        $ cd powerline-fonts/
+        $ ./install.sh
+4. Install Plugins:
+
+    Launch `vim` and run `:PluginInstall`
