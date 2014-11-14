@@ -43,6 +43,10 @@ Git
 3. Copy .gitignore to home directory:
 
         $ cp .gitignore ~/.gitignore
+4. Set up user information:
+
+        $ git config --global user.name "<YOUR_NAME>"
+        $ git config --global user.email YOUR_EMAIL
 
 Tmux
 -------
