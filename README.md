@@ -8,9 +8,16 @@ OSX
 
 iTerm2
 -------
-1. Set up iTerm2 preference:
+1. Install [iTerm2](http://iterm2.com/downloads.html)
+2. Set up iTerm2 preference:
 
         $ cp com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+
+Homebrew
+-------
+1. Install [Homebrew](http://brew.sh/):
+
+        $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Zsh
 -------
@@ -27,10 +34,13 @@ Zsh
 
 Git
 -------
-1. Copy .gitconfig to home directory:
+1. Install Git:
+
+        $ brew install git
+2. Copy .gitconfig to home directory:
 
         $ cp .gitconfig ~/.gitconfig
-2. Copy .gitignore to home directory:
+3. Copy .gitignore to home directory:
 
         $ cp .gitignore ~/.gitignore
 
@@ -45,17 +55,20 @@ Tmux
 
 Vim
 -------
-1. Set up [Vundle](https://github.com/gmarik/Vundle.vim):
+1. Install Vim with Lua:
+
+        $ brew install vim --with-lua
+2. Set up [Vundle](https://github.com/gmarik/Vundle.vim):
 
         $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-2. Copy .vimrc to home directory:
+3. Copy .vimrc to home directory:
 
         $ cp .vimrc ~/.vimrc
-3. Install [powerline-fonts](https://github.com/Lokaltog/powerline-fonts):
+4. Install [powerline-fonts](https://github.com/Lokaltog/powerline-fonts):
 
         $ git clone git@github.com:Lokaltog/powerline-fonts.git
         $ cd powerline-fonts/
         $ ./install.sh
-4. Install Plugins:
+5. Install Plugins:
 
     Launch `vim` and run `:PluginInstall`
