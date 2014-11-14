@@ -44,6 +44,10 @@ colorscheme molokai
 " Supertab
 let g:SuperTabDefaultCompletionType='<C-n>'
 
+" NERDtree
+let NERDTreeShowBookmarks=1
+let NERDTreeQuitOnOpen=1
+
 " Neocomplete
 let g:neocomplete#enable_at_startup=1
 let g:neocomplete#enable_ignore_case=1
@@ -182,3 +186,4 @@ command -complete=help -nargs=1 Vhelp vertical help <args>
 
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd FocusGained,BufEnter * silent! !
