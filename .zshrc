@@ -85,4 +85,5 @@ export LESS_TERMCAP_us=$'\e[0;31m'
 # For a full list of active aliases, run `alias`.
 alias grep="grep -nH"
 alias ls="ls -FG"
-alias vim="stty stop '' -ixoff ; vim"
+
+stty stop '' -ixoff
