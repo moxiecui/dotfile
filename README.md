@@ -6,6 +6,21 @@ OSX
     1. System Preferences -> Keyboard -> Shortcuts
     2. Disable ^→, ^←, and F12
 
+Finder
+-------
+1. Add "Quit Finder ⌘Q" Option to the menu:
+
+        $ defaults write com.apple.finder QuitMenuItem -bool YES
+        $ killall Finder
+
+Path Finder
+-------
+1. Install [Path Finder](http://www.cocoatech.com/pathfinder/)
+2. Enable Finder's "Remove from Dock" menu option
+    1. Preferences... ⌘,
+    2. Select Finder tab
+    3. Check 'Enable Finder's "Remove from Dock" menu option'
+
 iTerm2
 -------
 1. Install [iTerm2](http://iterm2.com/downloads.html)
