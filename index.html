@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Dotfile by raywang945</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Dotfile</h1>
+        <h2>Dotfile for vim, iterm2, git, and zsh</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/raywang945/dotfile/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/raywang945/dotfile/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/raywang945/dotfile" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<h2>
+<a id="osx" class="anchor" href="#osx" aria-hidden="true"><span class="octicon octicon-link"></span></a>OSX</h2>
+
+<ol>
+<li>Disable some keyboard shortcuts:
+
+<ol>
+<li>System Preferences -&gt; Keyboard -&gt; Shortcuts</li>
+<li>Disable ^→, ^←, and F12</li>
+</ol>
+</li>
+</ol>
+
+<h2>
+<a id="finder" class="anchor" href="#finder" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finder</h2>
+
+<ol>
+<li>
+<p>Add "Quit Finder ⌘Q" Option to the menu:</p>
+
+<pre><code>$ defaults write com.apple.finder QuitMenuItem -bool YES
+$ killall Finder
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="path-finder" class="anchor" href="#path-finder" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path Finder</h2>
+
+<ol>
+<li>Install <a href="http://www.cocoatech.com/pathfinder/">Path Finder</a>
+</li>
+<li>Enable Finder's "Remove from Dock" menu option
+
+<ol>
+<li>Preferences... ⌘,</li>
+<li>Select Finder tab</li>
+<li>Check 'Enable Finder's "Remove from Dock" menu option'</li>
+</ol>
+</li>
+</ol>
+
+<h2>
+<a id="iterm2" class="anchor" href="#iterm2" aria-hidden="true"><span class="octicon octicon-link"></span></a>iTerm2</h2>
+
+<ol>
+<li>Install <a href="http://iterm2.com/downloads.html">iTerm2</a>
+</li>
+<li>
+<p>Set up iTerm2 preference:</p>
+
+<pre><code>$ cp com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="homebrew" class="anchor" href="#homebrew" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homebrew</h2>
+
+<ol>
+<li>
+<p>Install <a href="http://brew.sh/">Homebrew</a>:</p>
+
+<pre><code>$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="zsh" class="anchor" href="#zsh" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zsh</h2>
+
+<ol>
+<li>
+<p>Install Zsh:</p>
+
+<pre><code>$ brew install zsh
+$ chsh -s /usr/local/bin/zsh
+</code></pre>
+</li>
+<li>
+<p>Set up <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>:</p>
+
+<pre><code>$ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+</code></pre>
+</li>
+<li>
+<p>Copy .zshrc to home directory:</p>
+
+<pre><code>$ cp .zshrc ~/.zshrc
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="git" class="anchor" href="#git" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git</h2>
+
+<ol>
+<li>
+<p>Install Git:</p>
+
+<pre><code>$ brew install git
+</code></pre>
+</li>
+<li>
+<p>Copy .gitconfig to home directory:</p>
+
+<pre><code>$ cp .gitconfig ~/.gitconfig
+</code></pre>
+</li>
+<li>
+<p>Copy .gitignore to home directory:</p>
+
+<pre><code>$ cp .gitignore ~/.gitignore
+</code></pre>
+</li>
+<li>
+<p>Set up user information:</p>
+
+<pre><code>$ git config --global user.name "&lt;YOUR_NAME&gt;"
+$ git config --global user.email YOUR_EMAIL
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="tmux" class="anchor" href="#tmux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tmux</h2>
+
+<ol>
+<li>
+<p>Install Tmux:</p>
+
+<pre><code>$ brew install tmux
+</code></pre>
+</li>
+<li>
+<p>Cpoy .tmux.config to home directory:</p>
+
+<pre><code>$ cp .tmux.conf ~/.tmux.conf
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="vim" class="anchor" href="#vim" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vim</h2>
+
+<ol>
+<li>
+<p>Install Vim with Lua:</p>
+
+<pre><code>$ brew install vim --with-lua
+</code></pre>
+</li>
+<li>
+<p>Set up <a href="https://github.com/gmarik/Vundle.vim">Vundle</a>:</p>
+
+<pre><code>$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+</code></pre>
+</li>
+<li>
+<p>Copy .vimrc to home directory:</p>
+
+<pre><code>$ cp .vimrc ~/.vimrc
+</code></pre>
+</li>
+<li>
+<p>Install <a href="https://github.com/Lokaltog/powerline-fonts">powerline-fonts</a>:</p>
+
+<pre><code>$ git clone git@github.com:Lokaltog/powerline-fonts.git
+$ cd powerline-fonts/
+$ ./install.sh
+</code></pre>
+</li>
+<li>
+<p>Install Plugins:</p>
+
+<p>Launch <code>vim</code> and run <code>:PluginInstall</code></p>
+</li>
+</ol>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
