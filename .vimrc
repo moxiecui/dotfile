@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tomasr/molokai'
+
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -31,6 +32,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'nvie/vim-togglemouse'
 
 Plugin 'Keithbsmiley/tmux.vim'
+Plugin 'elzr/vim-json'
+Plugin 'kchmck/vim-coffee-script'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -96,7 +99,7 @@ let g:tmuxline_preset='crosshair'
 let g:ctrlp_cmd='CtrlP'
 set wildignore+=*/Library/*
 let g:ctrlp_custom_ignore={
-    \ 'dir':  '\v[\/]\.(git|Trash|cache|vim|oh-my-zsh|config|ssh)$',
+    \ 'dir':  '\v[\/](node_modules)|(\.(git|Trash|cache|vim|oh-my-zsh|config|ssh))$',
     \ 'file': '\v\.(swp|zip|so)$'
     \ }
 let g:ctrlp_by_filename=1
@@ -119,10 +122,14 @@ let g:indent_guides_exclude_filetypes=['help', 'nerdtree']
 " delimitMate
 let delimitMate_matchpairs='(:),[:],{:}'
 
+" json
+let g:vim_json_syntax_conceal=0
+
 let mapleader=','
 
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :call ToggleError()<CR>
+set pastetoggle=<F3>
+nmap <F4> :call ToggleError()<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " Tab navigation
@@ -187,3 +194,4 @@ command -complete=help -nargs=1 Vhelp vertical help <args>
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd FocusGained,BufEnter * silent! !
+autocmd BufRead,BufNewFile *.lock set filetype=json
