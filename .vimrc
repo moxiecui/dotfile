@@ -24,7 +24,6 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'godlygeek/tabular'
@@ -34,6 +33,7 @@ Plugin 'nvie/vim-togglemouse'
 Plugin 'Keithbsmiley/tmux.vim'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'digitaltoad/vim-jade'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -105,10 +105,13 @@ let g:ctrlp_custom_ignore={
 let g:ctrlp_by_filename=1
 let g:ctrlp_match_window_bottom=0
 let g:ctrlp_match_window_reversed=0
-let g:ctrlp_use_caching=1
-let g:ctrlp_clear_cache_on_exit=0
+"let g:ctrlp_use_caching=1
+let g:ctrlp_use_caching=0
+"let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_show_hidden=1
 let g:ctrlp_regexp=1
+let g:ctrlp_tabpage_position='l'
 
 " Indent-guides
 let g:indent_guides_auto_colors=0
