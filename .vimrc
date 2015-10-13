@@ -99,7 +99,7 @@ let g:tmuxline_preset='crosshair'
 let g:ctrlp_cmd='CtrlP'
 set wildignore+=*/Library/*
 let g:ctrlp_custom_ignore={
-    \ 'dir':  '\v[\/](node_modules)|(\.(git|Trash|cache|vim|oh-my-zsh|config|ssh))$',
+    \ 'dir':  '\v[\/](node_modules)|(bower_components)|(\.(git|Trash|sass-cache|cache|vim|oh-my-zsh|config|ssh))$',
     \ 'file': '\v\.(swp|zip|so)$'
     \ }
 let g:ctrlp_by_filename=1
@@ -174,6 +174,9 @@ map <C-s> :w<CR>
 imap <C-s> <C-o>:w<CR>
 vmap <C-s> <C-c>:w<CR>
 
+" Search for visually selected text
+vnoremap / y/<C-R>"<CR>
+
 set number
 set hlsearch
 set incsearch
@@ -195,6 +198,10 @@ set shortmess=atI
 command -complete=help -nargs=1 Vhelp vertical help <args>
 
 autocmd FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType sass set tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType scss set tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType coffee set tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType jade set tabstop=4 shiftwidth=4 softtabstop=4
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd FocusGained,BufEnter * silent! !
 autocmd BufRead,BufNewFile *.lock set filetype=json
